@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>YouTube</title>
+
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: #0f0f0f;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        overflow: hidden;
+      }
+
+      .splash {
+        width: 1200px;
+        height: 800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo {
+        width: 260px;
+        height: auto;
+      }
+
+      .popup {
+        margin-left: 8px;
+        background: #ff0033;
+        color: #fff;
+        font-size: 14px;
+        padding: 4px 8px;
+        border-radius: 3px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transform: rotate(-6deg);
+        animation: float 2s ease-in-out infinite;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        user-select: none;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(-6deg);
+        }
+        50% {
+          transform: translateY(-4px) rotate(-6deg);
+        }
+        100% {
+          transform: translateY(0) rotate(-6deg);
+        }
+      }
+
+      .loader {
+        position: absolute;
+        bottom: 80px;
+        width: 70%;
+      }
+
+      .bar {
+        width: 100%;
+        height: 6px;
+        background: #222;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+
+      .bar-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #ff0033, #ff5a5a);
+        animation: load 3.5s ease-out forwards;
+      }
+
+      @keyframes load {
+        from {
+          width: 0%;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      .loader-text {
+        margin-top: 10px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        color: #aaa;
+        text-align: center;
+        animation: blink 1.4s infinite;
+      }
+
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      .fade {
+        animation: fadeIn 1s ease-out forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="splash fade">
+      <div class="logo-container">
+        <svg
+          class="logo"
+          viewBox="0 0 512 144"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            x="0"
+            y="16"
+            rx="32"
+            ry="32"
+            width="224"
+            height="112"
+            fill="#FF0000"
+          />
+          <polygon points="92,44 92,100 148,72" fill="#ffffff" />
+          <text
+            x="248"
+            y="98"
+            fill="#ffffff"
+            font-size="64"
+            font-family="Arial, Helvetica, sans-serif"
+            font-weight="bold"
+          >
+            YouTube
+          </text>
+        </svg>
+
+        <div class="popup">Carregando...</div>
+      </div>
+
+      <div class="loader">
+        <div class="bar">
+          <div class="bar-fill"></div>
+        </div>
+        <div class="loader-text">injetando vírus</div>
+      </div>
+    </div>
+
+    <script>
+      const texts = [
+        "Crackeado",
+        "Instalando malware",
+        "Bypass DRM",
+        "Pegando cookies",
+        "Mineração ativa",
+        "Modo russo",
+      ];
+
+      const popup = document.querySelector(".popup");
+      let index = 0;
+
+      setInterval(() => {
+        index = (index + 1) % texts.length;
+        popup.textContent = texts[index];
+      }, 1000);
+    </script>
+  </body>
+</html>
